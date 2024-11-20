@@ -3,6 +3,7 @@
 import streamlit as st
 import pandas as pd
 import os
+from cc_ac_summary import create_summary
 
 # Configurar la página de Streamlit
 st.set_page_config(page_title="Cockpit :: XLSX files", layout="centered")
@@ -25,6 +26,9 @@ if uploaded_file:
     st.info(f"File '{uploaded_file.name}' saved in {
             os.path.dirname(saved_path)}")
     if st.button("⚙️ Get summary file"):
-        pass
+        if create_summary(saved_path):
+            st.info(f'Summary file created!')
+        else:
+            st.warning(f'There was a problem to create summary')
 else:
     st.info("⚠️ Please upload file to continue...")

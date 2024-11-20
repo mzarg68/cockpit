@@ -1,0 +1,22 @@
+{
+  "input_folder": "input/",
+  "xlsx_sheet": "data",
+  "cols_names": [
+    "ACCOUNT",
+    "AC_DESC",
+    "DTM_DOC",
+    "BATCH",
+    "DOC",
+    "TBD",
+    "PJUR",
+    "DESC",
+    "REMARK",
+    "CC",
+    "DEBIT",
+    "CREDIT",
+    "BALANCE"
+  ],
+  "group_by": ["YEAR", "MONTH", "CC", "ACCOUNT"],
+  "output_folder": "output/",
+  "output_filename": "cc_ac_summary.xlsx"
+}
