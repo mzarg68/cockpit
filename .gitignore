@@ -1,3 +1,3 @@
-/input/
-/output/
-/temp/
+/input/*.*
+/output/*.*
+/2upload/

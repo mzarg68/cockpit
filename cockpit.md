@@ -1,5 +1,10 @@
 # Cockpit version log file
 
+## v1.3.0 @21NOV24
+
+- cc_ac_summary.py revised to include toast message
+- setup.py revised to include app_version and app_release
+
 ## v1.2.0 @21NOV24
 
 - cc_ac_summary() revised
