@@ -1,5 +1,17 @@
 # Cockpit version log file
 
+## v1.2.0 @21NOV24
+
+- cc_ac_summary() revised
+
+  - Streamlit module added
+  - Traceback module added
+  - Message for browser added
+
+- constants.py renamed to setup.py
+- setup.py revised to include setup commands
+- cockpit.py revised to import setup.py
+
 ## v1.1.0 @20nov24
 
 - New files cockpit.json, constants.py
