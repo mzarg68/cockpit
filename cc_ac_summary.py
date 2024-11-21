@@ -21,11 +21,7 @@ def check_args() -> bool:
 def create_summary(ln_file: str) -> bool:
     """"Analyze LN file passed as parameter to create new file with summary"""
     start_time = time.time()
-    # if not os.path.exists(setup.config_file):
-    #     zmessage(f'Cockpit config file "{setup.config_file}" is missing!')
-    #     sys.exit(1)
-    # prm = JSON_load(setup.config_file)
-    st.toast("Summary process starting...")
+    st.toast("Summary process starting...", icon="⚠️")
     ln_file = os.path.join(setup.input_folder, ln_file)
     if not os.path.exists(ln_file):
         zmessage(f'LN File "{ln_file}" is missing in folder "{

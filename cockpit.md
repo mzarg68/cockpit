@@ -1,5 +1,10 @@
 # Cockpit version log file
 
+## v1.4.0 @21NOV24
+
+- cockpit.py revised to improve toast message with icon
+- bot version added to header
+
 ## v1.3.0 @21NOV24
 
 - cc_ac_summary.py revised to include toast message
