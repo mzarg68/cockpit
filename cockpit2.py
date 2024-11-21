@@ -51,8 +51,8 @@ elif st.session_state.step == 2:
     st.header("Step 2/4: Summary creation")
     st.success(f'File "{os.path.basename(
         st.session_state.file_path)}" uploaded successfully')
-    st.info("ℹ️ Press Start button to run process")
-    if st.button("⚙️ Start"):
+    st.info("ℹ️ Press START to run process")
+    if st.button("⚙️ START"):
         start_time = time.time()
         with st.spinner("Processing file..."):
             if create_summary(st.session_state.file_path):
@@ -70,13 +70,13 @@ elif st.session_state.step == 3:
     st.header("Step 3/4: Download summary file")
     st.success(f'File "{setup.out_file}" created successfully in {
                st.session_state.lapse} seconds')
-    st.info("ℹ️ Press Download button to get summary file created")
+    st.info("ℹ️ Press DOWNLOAD to get summary file created")
     summary_path = os.path.join(setup.output_folder, setup.out_file)
     if os.path.exists(summary_path):
         with open(summary_path, "rb") as f:
             summary_data = f.read()
         st.download_button(
-            label="📥 Download",
+            label="📥 DOWNLOAD",
             data=summary_data,
             file_name=setup.out_file,
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -90,8 +90,8 @@ elif st.session_state.step == 3:
 
 # Paso 4: Finalizar y reiniciar el proceso
 elif st.session_state.step == 4:
-    st.header("Step 4/4: Restart")
+    st.header("Step 4/4: Restart process")
     st.success(f'🎉 File "{setup.out_file}" downloaded successfully')
-    if st.button("🔄 Restart"):
+    if st.button("🔄 RESTART"):
         restart_process()
         st.rerun()

@@ -60,6 +60,7 @@ def create_summary(ln_file: str) -> bool:
         df_group.to_excel(summary_file, index=None, sheet_name='SUMMARY')
         print(f'>Summary file "{summary_file}" created')
     except Exception as e:
+        st.toast(f'🚨 There was a critical error', icon="🚨")
         st.error("An error occurred. Check the logs for more details.")
         # Muestra el traceback completo en la página
         st.text(traceback.format_exc())

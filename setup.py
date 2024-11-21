@@ -3,7 +3,7 @@ import os
 import sys
 from zrtlib import zmessage, JSON_load
 
-app_version = 'v2.0.0'
+app_version = 'v2.1.0'
 app_release = '@21NOV24'
 config_file = 'cockpit.json'
 if not os.path.exists(config_file):

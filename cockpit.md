@@ -1,5 +1,10 @@
 # Cockpit version log file
 
+## v2.1.0 @21NOV24
+
+- Debugging point added
+- Application is not working in user's computer
+
 ## v2.0.0 @21NOV24
 
 - Whole process revised to implement in steps
