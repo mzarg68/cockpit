@@ -18,8 +18,8 @@ if 'new_file_created' not in st.session_state:
 # Title and subheader
 st.title("📈 AUNDE Cockpit")
 st.subheader(f"Cost Center and Account summary")
-st.markdown(f"<small>(bot {setup.app_version} {
-            setup.app_release})</small>", unsafe_allow_html=True)
+st.markdown(f"<small>({setup.app_version} {
+            setup.app_release} by mzarate©️)</small>", unsafe_allow_html=True)
 st.write('---')
 
 # File upload with clear instructions

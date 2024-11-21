@@ -1,5 +1,9 @@
 # Cockpit version log file
 
+## v2.0.0 @21NOV24
+
+- Whole process revised to implement in steps
+
 ## v1.4.0 @21NOV24
 
 - cockpit.py revised to improve toast message with icon
