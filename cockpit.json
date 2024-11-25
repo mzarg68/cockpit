@@ -19,10 +19,10 @@
   "cols_order": [
     "YEAR",
     "MONTH",
-    "GR",
     "CC",
-    "DESCRIPTION",
+    "GR",
     "ACCOUNT",
+    "DESCRIPTION",
     "DEBIT",
     "CREDIT",
     "BALANCE",
