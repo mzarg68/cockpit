@@ -3,7 +3,7 @@ import os
 from cc_ac_summary import create_summary
 import setup
 import time
-
+from functions import file_is_ok as fok
 
 # Configuración inicial de la página
 st.set_page_config(page_title="Cockpit :: LN Data", layout="centered")
@@ -52,18 +52,34 @@ elif st.session_state.step == 2:
     st.success(f'File "{os.path.basename(
         st.session_state.file_path)}" uploaded successfully')
     st.info("ℹ️ Press START to run process")
-    if st.button("⚙️ START"):
-        start_time = time.time()
-        with st.spinner("Processing file..."):
-            if create_summary(st.session_state.file_path):
-                st.session_state.summary_created = True
-                st.session_state.step = 3  # Avanza al paso 3
+    col1, col2, col3 = st.columns([2, 2, 3])
+    check_msg = ''
+    error_msg = ''
+    with col1:
+        if st.button("⚙️ START"):
+            start_time = time.time()
+            with st.spinner("Checking file..."):
+                check_msg = fok(st.session_state.file_path)
+            if check_msg == '':
+                with st.spinner("Processing file..."):
+                    if create_summary(st.session_state.file_path):
+                        st.session_state.summary_created = True
+                        st.session_state.step = 3  # Avanza al paso 3
+                        end_time = time.time()
+                        lapse_seconds = int(round(end_time-start_time, 0))
+                        st.session_state.lapse = lapse_seconds
+                        st.rerun()
+                    else:
+                        error_msg = "🚨 There was a problem to create summary file"
             else:
-                st.error("🚨 There was a problem to create summary")
-        end_time = time.time()
-        lapse_seconds = int(round(end_time-start_time, 0))
-        st.session_state.lapse = lapse_seconds
-        st.rerun()
+                error_msg = f"🚨 {check_msg}"
+    with col2:
+        if st.button("🔄 RESTART"):
+            restart_process()
+            st.rerun()
+    if error_msg != '':
+        st.error(error_msg)
+
 
 # Paso 3: Descargar el archivo creado
 elif st.session_state.step == 3:
@@ -71,17 +87,23 @@ elif st.session_state.step == 3:
     st.success(f'File "{setup.out_file}" created successfully in {
                st.session_state.lapse} seconds')
     st.info("ℹ️ Press DOWNLOAD to get summary file created")
+    col1, col2, col3 = st.columns([2, 2, 3])
     summary_path = os.path.join(setup.output_folder, setup.out_file)
     if os.path.exists(summary_path):
         with open(summary_path, "rb") as f:
             summary_data = f.read()
-        st.download_button(
-            label="📥 DOWNLOAD",
-            data=summary_data,
-            file_name=setup.out_file,
-            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        )
-        st.session_state.step = 4  # Avanza al paso 3
+        with col1:
+            st.download_button(
+                label="📥 DOWNLOAD",
+                data=summary_data,
+                file_name=setup.out_file,
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            )
+            st.session_state.step = 4  # Avanza al paso 3
+        with col2:
+            if st.button("🔄 RESTART"):
+                restart_process()
+                st.rerun()
     else:
         st.warning(f"Summary file not found at {summary_path}")
         if st.button("🔄 Restart"):

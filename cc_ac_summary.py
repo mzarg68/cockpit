@@ -5,7 +5,7 @@ import os
 import pandas as pd
 import time
 import sys
-from zrtlib import zmessage, JSON_load
+from zrtlib import zmessage
 import setup
 from datetime import datetime
 import warnings
@@ -55,6 +55,11 @@ def create_summary(ln_file: str) -> bool:
         df_group.reindex()
         shape = df_group.shape
         print(f'>Table size: Rows={shape[0]} x Columns={shape[1]}')
+
+        df_group['GR'] = df_group['ACCOUNT'].astype(str).str[:5]
+        df_accounts = df[['ACCOUNT', 'DESCRIPTION']].drop_duplicates()
+        df_group = df_group.merge(df_accounts, on='ACCOUNT', how='left')
+        df_group = df_group[setup.cols_order]
 
         summary_file = setup.output_folder+setup.out_file
         df_group.to_excel(summary_file, index=None, sheet_name='SUMMARY')

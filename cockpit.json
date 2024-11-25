@@ -3,7 +3,7 @@
   "xlsx_sheet": "data",
   "cols_names": [
     "ACCOUNT",
-    "AC_DESC",
+    "DESCRIPTION",
     "DTM_DOC",
     "BATCH",
     "DOC",
@@ -16,7 +16,54 @@
     "CREDIT",
     "BALANCE"
   ],
+  "cols_order": [
+    "YEAR",
+    "MONTH",
+    "GR",
+    "CC",
+    "DESCRIPTION",
+    "ACCOUNT",
+    "DEBIT",
+    "CREDIT",
+    "BALANCE",
+    "RCD"
+  ],
   "group_by": ["YEAR", "MONTH", "CC", "ACCOUNT"],
   "output_folder": "output/",
-  "output_filename": "cc_ac_summary.xlsx"
+  "output_filename": "cc_ac_summary.xlsx",
+  "check_xls_values": {
+    "ln_program": "lpbra5406",
+    "sheet_name": "data",
+    "cols_num": 13,
+    "cols_ok": [
+      "Conta cont\u00e1bil",
+      "Descri\u00e7\u00e3o",
+      "Data documento",
+      "Lote",
+      "Documento",
+      null,
+      "P. jur\u00edd.",
+      "Descri\u00e7\u00e3o",
+      "Refer\u00eancia",
+      "CC",
+      "D\u00e9bito",
+      "Cr\u00e9dito",
+      "Saldo"
+    ],
+    "cols_ok_utf": [
+      "Conta contábil",
+      "Descrição",
+      "Data documento",
+      "Lote",
+      "Documento",
+      null,
+      "P. juríd.",
+      "Descrição",
+      "Referência",
+      "CC",
+      "Débito",
+      "Crédito",
+      "Saldo"
+    ]
+  }
 }
