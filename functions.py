@@ -38,7 +38,7 @@ def file_is_ok(lnreport: str) -> str:
             wb_opened = True
         except Exception as e:
             response = False
-            msg = e
+            msg = f'xlwings error: {e}'
     if response and sheet not in wb_sheets:
         msg = f'Sheet "{sheet}" is missing'
         response = False

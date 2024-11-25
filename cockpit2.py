@@ -72,7 +72,7 @@ elif st.session_state.step == 2:
                     else:
                         error_msg = "🚨 There was a problem to create summary file"
             else:
-                error_msg = f"🚨 {check_msg}"
+                error_msg = f"🚨 File check: {check_msg}"
     with col2:
         if st.button("🔄 RESTART"):
             restart_process()

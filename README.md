@@ -1,5 +1,10 @@
 # Cockpit version log file
 
+## `v2.2.1` @25NOV24
+
+- zrtlib.py updated
+- requirements.txt revised to include xlwings library
+
 ## `v2.2.0` @25NOV24
 
 - New function.py to check ln report file

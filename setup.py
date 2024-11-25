@@ -1,9 +1,9 @@
 # COCKPIT SETUP
 import os
 import sys
-from zrtlib import zmessage, JSON_load
+from cockpit.zrtlib import zmessage, JSON_load
 
-app_version = 'v2.2.0'
+app_version = 'v2.2.1'
 app_release = '@25NOV24'
 config_file = 'cockpit.json'
 if not os.path.exists(config_file):

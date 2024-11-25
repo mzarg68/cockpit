@@ -20,7 +20,7 @@ def JSON_load(Filename: str) -> dict:
     """Load JSON filename passed as parameter and return a dictionary"""
     prm = {}
     if os.path.exists(Filename) and os.path.isfile(Filename):
-        with open(Filename, "r") as f:
+        with open(Filename, "r", encoding='utf-8') as f:
             prm = json.load(f)
     else:
         print(f">JSON file {Filename} is missing")
@@ -31,7 +31,7 @@ def JSON_save(data: dict, Filename: str) -> bool:
     """Save a dictionary to a file with the specified filename in JSON format."""
     try:
         # Write the dictionary to a JSON file
-        with open(Filename, "w") as f:
+        with open(Filename, "w", encoding='utf-8') as f:
             json.dump(data, f, indent=4)
         return True
     except Exception as e:
