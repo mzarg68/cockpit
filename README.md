@@ -1,5 +1,9 @@
 # Cockpit version log file
 
+## `v2.3.0` @25NOV24
+
+- function.py revised to return to openpyxl library, compatible with Streamlit cloud
+
 ## `v2.2.1` @25NOV24
 
 - zrtlib.py updated

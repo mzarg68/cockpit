@@ -1,5 +1,6 @@
 # FUNCTIONS FILE -----------------------------
-import xlwings as xw
+# import xlwings as xw
+import openpyxl
 import os
 import setup
 
@@ -16,7 +17,7 @@ def file_is_ok(lnreport: str) -> str:
     response = True
     wb_opened = False
     ln_program = setup.check_xls_values['ln_program']
-    sheet = setup.check_xls_values['sheet_name']
+    sheet_name = setup.check_xls_values['sheet_name']
     cols_num = setup.check_xls_values['cols_num']
     cols_ok = setup.check_xls_values['cols_ok']
     msg = ''
@@ -32,24 +33,35 @@ def file_is_ok(lnreport: str) -> str:
         response = False
     if response:
         try:
-            app = xw.App(visible=False)
-            wb = app.books.open(lnreport)
-            wb_sheets = [sheet.name for sheet in wb.sheets]
-            wb_opened = True
+            # app = xw.App(visible=False)
+            # wb = app.books.open(lnreport)
+            # wb_sheets = [sheet.name for sheet in wb.sheets]
+            # wb_opened = True
+            wb = openpyxl.load_workbook(lnreport, data_only=True)
+            if sheet_name not in wb.sheetnames:
+                msg = f'Sheet "{sheet_name}" is missing'
+                response = False
+            else:
+                sheet = wb[sheet_name]
+                cols = [sheet.cell(row=1, column=col).value for col in range(
+                    1, cols_num + 1)]
+                if cols != cols_ok:
+                    msg = f'File columns are not right!'
+                    response = False
         except Exception as e:
             response = False
             msg = f'xlwings error: {e}'
-    if response and sheet not in wb_sheets:
-        msg = f'Sheet "{sheet}" is missing'
-        response = False
-    if response:
-        sht = wb.sheets[sheet]
-        cols = sht.range((1, 1), (1, cols_num)).value
-        if not cols == cols_ok:
-            msg = f'File columns are not right!'
-            response = False
-    if wb_opened:
-        wb.close()
-        app.quit()
-    print(f'file_is_ok() => "{msg}"')
+    # if response and sheet not in wb_sheets:
+    #     msg = f'Sheet "{sheet}" is missing'
+    #     response = False
+    # if response:
+    #     sht = wb.sheets[sheet]
+    #     cols = sht.range((1, 1), (1, cols_num)).value
+    #     if not cols == cols_ok:
+    #         msg = f'File columns are not right!'
+    #         response = False
+    # if wb_opened:
+    #     wb.close()
+    #     app.quit()
+    # print(f'file_is_ok() => "{msg}"')
     return msg
