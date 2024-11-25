@@ -5,7 +5,7 @@ import os
 import pandas as pd
 import time
 import sys
-from cockpit.zrtlib import zmessage
+from zrtlib import zmessage
 import setup
 from datetime import datetime
 import warnings

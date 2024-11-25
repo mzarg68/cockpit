@@ -1,7 +1,7 @@
 # COCKPIT SETUP
 import os
 import sys
-from cockpit.zrtlib import zmessage, JSON_load
+from zrtlib import zmessage, JSON_load
 
 app_version = 'v2.2.1'
 app_release = '@25NOV24'
