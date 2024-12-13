@@ -42,6 +42,12 @@ def create_summary(ln_file: str) -> bool:
         df.columns = cols_renamed
         print(f'>Columns names renamed')
 
+        df['DESC'].fillna('TBD', inplace=True)
+        df.fillna(0, inplace=True)
+        df['ACCOUNT'] = df['ACCOUNT'].astype('int64')
+        df['CC'] = df['CC'].astype('int64')
+        print(f'>All -NaN- removed')
+
         df['DTM_DOC'] = pd.to_datetime(df['DTM_DOC'], errors='coerce')
         df['YEAR'] = df['DTM_DOC'].dt.year
         df['MONTH'] = df['DTM_DOC'].dt.month

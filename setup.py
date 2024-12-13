@@ -3,8 +3,8 @@ import os
 import sys
 from zrtlib import zmessage, JSON_load
 
-app_version = 'v2.3.0'
-app_release = '@25NOV24'
+app_version = 'v2.4.0'
+app_release = '@12DEC24'
 config_file = 'cockpit.json'
 if not os.path.exists(config_file):
     zmessage(f'Cockpit config file "{config_file}" is missing!')

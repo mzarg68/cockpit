@@ -1,5 +1,9 @@
 # Cockpit version log file
 
+## `v2.4.0` @12DEC24
+
+- cc_ac_summary.py revised to remove NaN
+
 ## `v2.3.0` @25NOV24
 
 - function.py revised to return to openpyxl library, compatible with Streamlit cloud
