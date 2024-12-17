@@ -1,5 +1,10 @@
 # Cockpit version log file
 
+## `v2.5.0` @17DEC24
+
+- setup.py revised to include CC_DEFAULT value
+- cc_ac_summary.py revised to replace NaN in column CC by default value
+
 ## `v2.4.0` @12DEC24
 
 - cc_ac_summary.py revised to remove NaN

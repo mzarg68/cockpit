@@ -43,6 +43,7 @@ def create_summary(ln_file: str) -> bool:
         print(f'>Columns names renamed')
 
         df['DESC'].fillna('TBD', inplace=True)
+        df['CC'].fillna(setup.CC_DEFAULT, inplace=True)
         df.fillna(0, inplace=True)
         df['ACCOUNT'] = df['ACCOUNT'].astype('int64')
         df['CC'] = df['CC'].astype('int64')

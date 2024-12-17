@@ -3,8 +3,8 @@ import os
 import sys
 from zrtlib import zmessage, JSON_load
 
-app_version = 'v2.4.0'
-app_release = '@12DEC24'
+app_version = 'v2.5.0'
+app_release = '@17DEC24'
 config_file = 'cockpit.json'
 if not os.path.exists(config_file):
     zmessage(f'Cockpit config file "{config_file}" is missing!')
@@ -22,3 +22,4 @@ cols_names = prm['cols_names']
 group_by = prm['group_by']
 check_xls_values = prm['check_xls_values']
 cols_order = prm['cols_order']
+CC_DEFAULT = 699
