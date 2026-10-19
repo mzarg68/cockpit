@@ -16,18 +16,7 @@
     "CREDIT",
     "BALANCE"
   ],
-  "cols_order": [
-    "YEAR",
-    "MONTH",
-    "CC",
-    "GR",
-    "ACCOUNT",
-    "DESCRIPTION",
-    "DEBIT",
-    "CREDIT",
-    "BALANCE",
-    "RCD"
-  ],
+  "cols_order": ["YEAR", "MONTH", "CC", "GR", "ACCOUNT", "DESCRIPTION", "DEBIT", "CREDIT", "BALANCE", "RCD"],
   "group_by": ["YEAR", "MONTH", "CC", "ACCOUNT"],
   "output_folder": "output/",
   "output_filename": "cc_ac_summary.xlsx",
